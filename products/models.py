@@ -19,7 +19,7 @@ class Product(models.Model):
 
 class Brand(models.Model):
     name =models.CharField(max_length=120)
-    imag =models.ImageField(upload_to='brands')
+    imag =models.ImageField(upload_to='brands'),
 
 
     def __str__(self):
