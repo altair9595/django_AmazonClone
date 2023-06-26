@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from taggit.managers import TaggableManager
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 class Product(models.Model):
@@ -19,7 +21,7 @@ class Product(models.Model):
         return self.name
 class ProductImages(models.Model):
      product = models.ForeignKey(Product,verbose_name=('product'),related_name='product_image',on_delete=models.CASCADE)
-     image = models.ImageField(_('image'),upload_to='productimages')
+     image = models.ImageField(('image'),upload_to='productimages')
     
      def __str__(self):
         return str(self.product)
@@ -32,7 +34,7 @@ class Brand(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return self.name.
     
 
 class Review(models.Model):
