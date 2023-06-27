@@ -24,7 +24,7 @@ class ProductImages(models.Model):
      image = models.ImageField(('image'),upload_to='productimages')
     
      def __str__(self):
-        return str(self.product)
+        return str(self.product).
        
 
 
@@ -34,7 +34,7 @@ class Brand(models.Model):
 
 
     def __str__(self):
-        return self.name.
+        return self.name
     
 
 class Review(models.Model):
