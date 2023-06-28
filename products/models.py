@@ -15,7 +15,7 @@ class Product(models.Model):
     brand =models.ForeignKey('Brand',related_name='product_brand', on_delete=models.SET_NULL,null=try,blank=True)
     tags = TaggableManager()
     image = models.ImageField(upload_to='products')
-    flag = models.CharField(max_length=10 , choices=FLAG_TYPES , default='New')
+    flag = models.CharField(max_length=10 , choices= , default='New')
     
     def __str__(self):
         return self.name
@@ -24,7 +24,7 @@ class ProductImages(models.Model):
      image = models.ImageField(('image'),upload_to='productimages')
     
      def __str__(self):
-        return str(self.product).
+        return str(self.product)
        
 
 
