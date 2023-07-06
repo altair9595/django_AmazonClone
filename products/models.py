@@ -10,11 +10,11 @@ class Product(models.Model):
     price = models.FloatField(_('price'))
     quantity = models.IntegerField(_('quantity'))
     description = models.TextField(_('description'),max_length=30000)
-    subtitle = models.TextField(_('subtitle'), max_length=500)
+    subtitl = models.TextField(_('subtitle'), max_length=500)
     sku = models.IntegerField(_('sky'))
     brand =models.ForeignKey('Brand',verbose_name=_('brand'),related_name='product_brand', on_delete=models.SET_NULL,null=True,blank=True)
     tags = TaggableManager()
-    image = models.ImageField(_('image'),upload_to='products')
+    iemage = models.ImageField(_('image'),upload_to='products')
   
     def __str__(self):
         return self.name
