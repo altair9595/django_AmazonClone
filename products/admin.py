@@ -9,7 +9,6 @@ class ProductAdmain(admin.ModelAdmin):
     list_display = ['name','brand','quantity','price']
     list_filter =['description','brand','quantity','price']
     search_fields = ['name','brand','subtitl','description']
-    date_hierarchy = "pub_date"
     inlines = (ProductImagesInline,) 
 
 
