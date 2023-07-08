@@ -4,6 +4,14 @@ from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
 from django.utils.translation import gettext_lazy as _
 
+
+
+
+FLAG_TYPES = (
+    ('New' , 'New'),
+    ('Sale' , 'Sale'),
+    ('Feature' , 'Feature'),
+)
 # Create your models here.
 class Product(models.Model):
     name =models.CharField(_('name'),max_length=120)
@@ -15,7 +23,9 @@ class Product(models.Model):
     brand =models.ForeignKey('Brand',verbose_name=_('brand'),related_name='product_brand', on_delete=models.SET_NULL,null=True,blank=True)
     tags = TaggableManager()
     iemage = models.ImageField(_('image'),upload_to='products')
-  
+    flag = models.CharField(max_length=10 , choices=FLAG_TYPES ,default='New')
+    
+    
     def __str__(self):
         return self.name
 
