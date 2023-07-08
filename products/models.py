@@ -1,9 +1,10 @@
+from typing import Any, Iterable, Optional
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
 from django.utils.translation import gettext_lazy as _
-
+from django.utils.text import slugify
 
 
 
@@ -24,11 +25,22 @@ class Product(models.Model):
     tags = TaggableManager()
     iemage = models.ImageField(_('image'),upload_to='products')
     flag = models.CharField(max_length=10 , choices=FLAG_TYPES ,default='New')
-    
+    slug = models.SlugField(null=True,blank=True)
     
     def __str__(self):
         return self.name
+    
 
+
+    def save(self, *args, **kwargs):
+       self.slug = slugify(self.name)
+       super(Product, self).save(*args, **kwargs) # Call the real save() method
+    
+    
+
+
+  
+    
 
 class ProductImages(models.Model):
      product = models.ForeignKey(Product,verbose_name=('product'),related_name='product_image',on_delete=models.CASCADE)
