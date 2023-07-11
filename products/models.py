@@ -34,7 +34,7 @@ class Product(models.Model):
 
     def save(self, *args, **kwargs):
        self.slug = slugify(self.name)
-       super(Product, self).save(*args, **kwargs) # Call the real save() method
+       super(Product, self).save(*args, **kwargs) 
     
     
 
@@ -59,9 +59,10 @@ class Brand(models.Model):
 
     def __str__(self):
         return self.name
+    
     def save(self, *args, **kwargs):
         self.slug = f"{slugify(self.name)}{random.randint(1000,100000000)}"
-        super(Product, self).save(*args, **kwargs) # Call the real save() method
+        super(Brand, self).save(*args, **kwargs) 
     
 
 class Review(models.Model):
