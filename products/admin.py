@@ -13,6 +13,8 @@ class ProductAdmain(SummernoteModelAdmin):
     inlines = (ProductImagesInline,) 
     summernote_fields = '__all__'
 
+     
+  
 
 
 
@@ -23,3 +25,4 @@ admin.site.register(Product, ProductAdmain)
 admin.site.register(ProductImages)
 admin.site.register(Brand)
 admin.site.register(Review)
+''''''

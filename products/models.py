@@ -23,7 +23,7 @@ class Product(models.Model):
     sku = models.IntegerField(_('sky'))
     brand =models.ForeignKey('Brand',verbose_name=_('brand'),related_name='product_brand', on_delete=models.SET_NULL,null=True,blank=True)
     tags = TaggableManager()
-    iemage = models.ImageField(_('image'),upload_to='products')
+    image = models.ImageField(upload_to='products')
     flag = models.CharField(max_length=10 , choices=FLAG_TYPES ,default='New')
     slug = models.SlugField(null=True,blank=True)
     
