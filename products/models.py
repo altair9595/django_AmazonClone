@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
 from django.utils.translation import gettext_lazy as _
 from django.utils.text import slugify
-
+import random
 
 
 FLAG_TYPES = (
@@ -54,10 +54,14 @@ class ProductImages(models.Model):
 class Brand(models.Model):
     name =models.CharField(_('name'),max_length=120)
     image =models.ImageField(_('image'),upload_to='brands')
+    slug = models.SlugField(null=True,blank=True)
 
 
     def __str__(self):
         return self.name
+    def save(self, *args, **kwargs):
+        self.slug = f"{slugify(self.name)}{random.randint(1000,100000000)}"
+        super(Product, self).save(*args, **kwargs) # Call the real save() method
     
 
 class Review(models.Model):

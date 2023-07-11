@@ -20,4 +20,31 @@ def seed_brand(n):
     print(f'{n} brands seeded successfully')
 
 
+def seed_product(n):
+    fake = Faker()
+    images = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg','9.jpg','10.jpg','11.jpg','12.jpg']
+    flag_type = ['New','Sale','Feature']
+    for x in range(n):
+        Product.objects.create(
+            name = fake.name() , 
+            price = round(random.uniform(20.99,99.99),2) , 
+            quantity = random.randint(1,100) , 
+            description = fake.text(max_nb_chars=3000),
+            subtitle = fake.text(max_nb_chars=500),
+            sku = random.randint(100,1000000) ,
+            brand = Brand.objects.get(id=random.randint(110,204)),
+            image = f"products/{images[random.randint(0,11)]}" , 
+            flag = flag_type[random.randint(0,2)]
+        )
+    
+    print(f' {n} products seeded successfully')
+
+
+
+
+
+
+
+
 seed_brand(50)
+#seed_product(3000)
