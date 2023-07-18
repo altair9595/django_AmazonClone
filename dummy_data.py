@@ -34,7 +34,7 @@ def seed_product(n):
             sku = random.randint(100,1000000) ,
             brand = Brand.objects.get(id=random.randint(375,573)),
             image = f"products/{images[random.randint(0,13)]}" , 
-            flag = flag_type[random.randint(0,2)],,
+            flag = flag_type[random.randint(0,2)],,,,
         )
     
     print(f' {n} products seeded successfully')
