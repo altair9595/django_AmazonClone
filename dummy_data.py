@@ -30,11 +30,11 @@ def seed_product(n):
             price = round(random.uniform(20.99,99.99),2) , 
             quantity = random.randint(1,100) , 
             description = fake.text(max_nb_chars=3000),
-            subtitle = fake.text(max_nb_chars=500),
+            subtitl = fake.text(max_nb_chars=500),
             sku = random.randint(100,1000000) ,
-            brand = Brand.objects.get(id=random.randint(375,573)),
+            brand = Brand.objects.get(id=random.randint(374,473)),
             image = f"products/{images[random.randint(0,13)]}" , 
-            flag = flag_type[random.randint(0,2)],,,,
+            flag = flag_type[random.randint(0,2)]
         )
     
     print(f' {n} products seeded successfully')
@@ -47,4 +47,4 @@ def seed_product(n):
 
 
 #seed_brand(100)
-seed_product(2)
+seed_product(50)
