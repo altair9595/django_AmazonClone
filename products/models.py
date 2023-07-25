@@ -25,7 +25,7 @@ class Product(models.Model):
     tags = TaggableManager()
     image = models.ImageField(upload_to='products')
     flag = models.CharField(max_length=10 , choices=FLAG_TYPES ,default='New')
-    slug = models.SlugField(null=True,blank=True)
+    slug = models.SlugField(null=True,blank=True,unique=True)
     
     def __str__(self):
         return self.name
