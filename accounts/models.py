@@ -6,6 +6,12 @@ class profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='profil')
     image = models.ImageField(upload_to='accounts')
 
+    def __str__(self):
+        return str(self.user)
+       
+
+    
+
 PHONE_TYPES = (
     ('Primary','Primary'),
     ('Secondary','Secondary')
